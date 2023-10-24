@@ -1,0 +1,30 @@
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.container > div {
+  padding: 5rem;
+}
+
+/* .inputs, */
+.page {
+  background-color: #eee;
+  border-radius: 0.5rem;
+}
+
+.inputs {
+  /* height: 100%; */
+}
+
+.inputs-title {
+  font-size: 5rem;
+  text-align: center;
+}
+
+.page {
+  aspect-ratio: 1/1.41;
+  padding: 1rem 2rem;
+  color: #242424;
+}
