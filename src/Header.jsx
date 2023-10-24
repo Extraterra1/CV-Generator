@@ -5,9 +5,11 @@ export default function Header() {
   return (
     <div className="header">
       <span className="title">CV Generator</span>
-      <IconBrandTwitterFilled />
-      <IconBrandGithubFilled />
-      <IconBrandYoutubeFilled />
+      <div className="socials">
+        <IconBrandTwitterFilled />
+        <IconBrandGithubFilled />
+        <IconBrandYoutubeFilled />
+      </div>
     </div>
   );
 }

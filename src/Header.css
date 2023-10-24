@@ -1,4 +1,26 @@
 .header {
   background-color: #3e3e3e;
   padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .socials {
+  display: flex;
+  gap: 3rem;
+  margin-right: 2rem;
+}
+
+.header .socials > * {
+  cursor: pointer;
+  transition: transform 0.3s ease-in;
+}
+.header .socials > *:hover {
+  transform: scale(1.1);
+}
+
+.header .title {
+  margin-left: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
 }
