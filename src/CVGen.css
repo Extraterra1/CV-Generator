@@ -38,32 +38,34 @@
   grid-area: title;
 }
 
-.inputs-group.education {
+.inputs-group.education,
+.inputs-group.experience {
   grid-template-columns: 1fr;
   grid-template-areas: none;
 }
 
-.education-subgroup {
+.subgroup {
   padding: 2rem;
   border: 1px dashed #eee;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
-.education-title {
+.education-title,
+.experience-title {
   display: flex;
   justify-content: space-between;
 }
 
-.education-title button {
+.inputs-group button {
   background-color: #28a745;
   color: #eee;
   font-size: 1.3rem;
   transition: all 0.3s;
 }
 
-.education-title button:hover,
-.education-title button:focus {
+.inputs-group button:hover,
+.inputs-group button:focus {
   transform: scale(1.1);
   outline: none;
   border: none;

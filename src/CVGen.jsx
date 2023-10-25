@@ -105,78 +105,82 @@ export default function CVGen() {
     setInputs(newInputs);
   };
   const addNewSubGroup = (ev, group) => {
-    if (educationGroupsArray().length === 3) {
-      return Swal.fire({
-        icon: 'error',
-        title: "You can't have more than 3 education groups",
-        toast: true,
-        position: 'top-right',
-        iconColor: 'red',
-        showConfirmButton: false,
-        timer: 1500,
-        timerProgressBar: true
-      });
+    if (group === 'education') {
+      if (subGroupsArray('education').length === 3)
+        return MySwal.fire({
+          icon: 'error',
+          title: "You can't have more than 3 education groups",
+          toast: true,
+          position: 'top-right',
+          iconColor: 'red',
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true
+        });
+      const subGroup = [
+        {
+          name: 'institution',
+          type: 'text',
+          label: 'Institution',
+          value: '',
+          placeholder: 'UofE',
+          id: uuid(),
+          group: 'education',
+          subgroup: `education${educationSubgroup}`
+        },
+        {
+          name: 'subject',
+          type: 'text',
+          label: 'Subject',
+          value: '',
+          placeholder: 'Bachelor in Science',
+          id: uuid(),
+          group: 'education',
+          subgroup: `education${educationSubgroup}`
+        },
+        {
+          name: 'from',
+          type: 'date',
+          label: 'From',
+          value: '',
+          placeholder: '22/02/1956',
+          id: uuid(),
+          group: 'education',
+          subgroup: `education${educationSubgroup}`
+        },
+        {
+          name: 'until',
+          type: 'date',
+          label: 'Until',
+          value: '',
+          placeholder: '22/02/1957',
+          id: uuid(),
+          group: 'education',
+          subgroup: `education${educationSubgroup}`
+        }
+      ];
+      setInputs(inputs.concat(subGroup));
+      setEducationSubgroup(educationSubgroup + 1);
     }
-    const subGroup = [
-      {
-        name: 'institution',
-        type: 'text',
-        label: 'Institution',
-        value: '',
-        placeholder: 'UofE',
-        id: uuid(),
-        group: 'education',
-        subgroup: `education${educationSubgroup}`
-      },
-      {
-        name: 'subject',
-        type: 'text',
-        label: 'Subject',
-        value: '',
-        placeholder: 'Bachelor in Science',
-        id: uuid(),
-        group: 'education',
-        subgroup: `education${educationSubgroup}`
-      },
-      {
-        name: 'from',
-        type: 'date',
-        label: 'From',
-        value: '',
-        placeholder: '22/02/1956',
-        id: uuid(),
-        group: 'education',
-        subgroup: `education${educationSubgroup}`
-      },
-      {
-        name: 'until',
-        type: 'date',
-        label: 'Until',
-        value: '',
-        placeholder: '22/02/1957',
-        id: uuid(),
-        group: 'education',
-        subgroup: `education${educationSubgroup}`
-      }
-    ];
-    setInputs(inputs.concat(subGroup));
-    setEducationSubgroup(educationSubgroup + 1);
+    if (group === 'experience') {
+      console.log('exp');
+    }
   };
-  const educationGroupsArray = () => {
-    const groupedEducation = {};
+  const subGroupsArray = (group) => {
+    const groups = {};
 
     inputs.forEach((input) => {
-      if (input.group === 'education') {
+      if (input.group === group) {
         const subgroup = input.subgroup;
 
-        if (!groupedEducation[subgroup]) {
-          groupedEducation[subgroup] = [];
+        if (!groups[subgroup]) {
+          groups[subgroup] = [];
         }
 
-        groupedEducation[subgroup].push(input);
+        groups[subgroup].push(input);
       }
     });
-    return Object.values(groupedEducation);
+    return Object.values(groups);
   };
 
   const [inputs, setInputs] = useState(initialInputs);
@@ -189,7 +193,7 @@ export default function CVGen() {
           <h2 className="inputs-title">Your Info</h2>
           <div className="inputs-group personal">
             <h3 className="inputs-group-title">Personal Information</h3>
-            {initialInputs.map((e) => {
+            {inputs.map((e) => {
               if (e.group === 'personal')
                 return (
                   <Input
@@ -211,9 +215,9 @@ export default function CVGen() {
                 Add New
               </button>
             </div>
-            {educationGroupsArray().map((subgroup) => {
+            {subGroupsArray('education').map((subgroup) => {
               return (
-                <div key={subgroup[0].id} className="education-subgroup">
+                <div key={subgroup[0].id} className="subgroup">
                   {subgroup.map((e) => {
                     return (
                       <Input
@@ -229,6 +233,15 @@ export default function CVGen() {
                 </div>
               );
             })}
+          </div>
+          <div className="inputs-group experience">
+            <div className="experience-title">
+              <h3 className="inputs-group-title">Experience</h3>
+              <button onClick={(ev) => addNewSubGroup(ev, 'experience')} className="experience-add-input">
+                Add New
+              </button>
+            </div>
+            <div className="subgroup"></div>
           </div>
         </div>
       </div>
