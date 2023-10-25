@@ -18,6 +18,27 @@ const initialInputs = [
     label: 'Phone',
     value: '',
     id: uuid()
+  },
+  {
+    name: 'email',
+    type: 'email',
+    label: 'Email',
+    value: '',
+    id: uuid()
+  },
+  {
+    name: 'desc',
+    type: 'text',
+    label: 'Description',
+    value: '',
+    id: uuid()
+  },
+  {
+    name: 'country',
+    type: 'select',
+    label: 'Country',
+    value: '',
+    id: uuid()
   }
 ];
 
