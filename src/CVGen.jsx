@@ -93,6 +93,46 @@ const initialInputs = [
     id: uuid(),
     group: 'education',
     subgroup: 'education1'
+  },
+  {
+    name: 'company',
+    type: 'text',
+    label: 'Company',
+    value: '',
+    placeholder: 'Company Name',
+    id: uuid(),
+    group: 'experience',
+    subgroup: 'experience1'
+  },
+  {
+    name: 'position',
+    type: 'text',
+    label: 'Position',
+    value: '',
+    placeholder: 'Clerk',
+    id: uuid(),
+    group: 'experience',
+    subgroup: 'experience1'
+  },
+  {
+    name: 'start',
+    type: 'date',
+    label: 'Start',
+    value: '',
+    placeholder: '22/02/1957',
+    id: uuid(),
+    group: 'experience',
+    subgroup: 'experience1'
+  },
+  {
+    name: 'end',
+    type: 'date',
+    label: 'End',
+    value: '',
+    placeholder: '22/02/1957',
+    id: uuid(),
+    group: 'experience',
+    subgroup: 'experience1'
   }
 ];
 
@@ -163,7 +203,61 @@ export default function CVGen() {
       setEducationSubgroup(educationSubgroup + 1);
     }
     if (group === 'experience') {
-      console.log('exp');
+      if (subGroupsArray('experience').length === 3)
+        return MySwal.fire({
+          icon: 'error',
+          title: "You can't have more than 3 experience groups",
+          toast: true,
+          position: 'top-right',
+          iconColor: 'red',
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true
+        });
+      const subGroup = [
+        {
+          name: 'company',
+          type: 'text',
+          label: 'Company',
+          value: '',
+          placeholder: 'Company Name',
+          id: uuid(),
+          group: 'experience',
+          subgroup: `experience${experienceSubgroup}`
+        },
+        {
+          name: 'position',
+          type: 'text',
+          label: 'Position',
+          value: '',
+          placeholder: 'Clerk',
+          id: uuid(),
+          group: 'experience',
+          subgroup: `experience${experienceSubgroup}`
+        },
+        {
+          name: 'start',
+          type: 'date',
+          label: 'Start',
+          value: '',
+          placeholder: '22/02/1957',
+          id: uuid(),
+          group: 'experience',
+          subgroup: `experience${experienceSubgroup}`
+        },
+        {
+          name: 'end',
+          type: 'date',
+          label: 'End',
+          value: '',
+          placeholder: '22/02/1957',
+          id: uuid(),
+          group: 'experience',
+          subgroup: `experience${experienceSubgroup}`
+        }
+      ];
+      setInputs(inputs.concat(subGroup));
+      setExperienceSubgroup(experienceSubgroup + 1);
     }
   };
   const subGroupsArray = (group) => {
@@ -185,6 +279,7 @@ export default function CVGen() {
 
   const [inputs, setInputs] = useState(initialInputs);
   const [educationSubgroup, setEducationSubgroup] = useState(2);
+  const [experienceSubgroup, setExperienceSubgroup] = useState(2);
 
   return (
     <div className="container">
@@ -241,7 +336,24 @@ export default function CVGen() {
                 Add New
               </button>
             </div>
-            <div className="subgroup"></div>
+            {subGroupsArray('experience').map((subgroup) => {
+              return (
+                <div key={subgroup[0].id} className="subgroup">
+                  {subgroup.map((e) => {
+                    return (
+                      <Input
+                        placeholder={e.placeholder}
+                        name={e.name}
+                        type={e.type}
+                        label={e.label}
+                        key={e.id}
+                        handleInputChange={(ev) => handleInputChange(ev, e.id)}
+                      />
+                    );
+                  })}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
