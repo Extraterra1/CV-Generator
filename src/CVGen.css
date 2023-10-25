@@ -33,9 +33,40 @@
   border-bottom: 2px dashed #eee;
 }
 
-.inputs-personal {
+.inputs-group-title {
   font-size: 2.5rem;
   grid-area: title;
+}
+
+.inputs-group.education {
+  grid-template-columns: 1fr;
+  grid-template-areas: none;
+}
+
+.education-subgroup {
+  padding: 2rem;
+  border: 1px dashed #eee;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.education-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.education-title button {
+  background-color: #28a745;
+  color: #eee;
+  font-size: 1.3rem;
+  transition: all 0.3s;
+}
+
+.education-title button:hover,
+.education-title button:focus {
+  transform: scale(1.1);
+  outline: none;
+  border: none;
 }
 
 .page {
