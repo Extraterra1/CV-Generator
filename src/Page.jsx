@@ -4,7 +4,7 @@ export default function Page({ inputs }) {
     <div className="page">
       {inputs.map((e) => {
         return (
-          <h1>
+          <h1 key={e.id}>
             {e.name} {e.value}
           </h1>
         );

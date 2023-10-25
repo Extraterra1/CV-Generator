@@ -9,6 +9,7 @@
 }
 
 .form-group input,
+.form-group textarea,
 .countrySelect {
   color: #242424;
   padding: 1rem 0.5rem;
@@ -18,13 +19,20 @@
   transition: all 0.1s ease-in-out;
 }
 
-.form-group:has(.countrySelect) {
+.form-group textarea {
+  resize: none;
+  height: 15rem;
+  padding: 3rem;
+  color: #242424;
+  font-family: inherit;
+}
+
+.form-group:has(textarea) {
   grid-column: 1/3;
 }
 
 .countrySelect {
   padding: 0;
-  max-width: 100%;
 }
 
 .form-group input:active,

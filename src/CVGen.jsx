@@ -10,35 +10,40 @@ const initialInputs = [
     type: 'text',
     label: 'Full Name',
     value: '',
-    id: uuid()
+    id: uuid(),
+    group: 'personal'
   },
   {
     name: 'phone',
     type: 'tel',
     label: 'Phone',
     value: '',
-    id: uuid()
+    id: uuid(),
+    group: 'personal'
   },
   {
     name: 'email',
     type: 'email',
     label: 'Email',
     value: '',
-    id: uuid()
-  },
-  {
-    name: 'desc',
-    type: 'text',
-    label: 'Description',
-    value: '',
-    id: uuid()
+    id: uuid(),
+    group: 'personal'
   },
   {
     name: 'country',
     type: 'select',
     label: 'Country',
     value: '',
-    id: uuid()
+    id: uuid(),
+    group: 'personal'
+  },
+  {
+    name: 'desc',
+    type: 'textarea',
+    label: 'Description',
+    value: '',
+    id: uuid(),
+    group: 'personal'
   }
 ];
 
@@ -61,7 +66,9 @@ export default function CVGen() {
           <div className="inputs-group personal">
             <h3 className="inputs-personal">Personal Information</h3>
             {initialInputs.map((e) => {
-              return <Input name={e.name} type={e.type} label={e.label} key={e.id} handleInputChange={(ev) => handleInputChange(ev, e.id)} />;
+              if (e.group === 'personal')
+                return <Input name={e.name} type={e.type} label={e.label} key={e.id} handleInputChange={(ev) => handleInputChange(ev, e.id)} />;
+              return null;
             })}
           </div>
         </div>

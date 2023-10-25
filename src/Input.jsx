@@ -15,7 +15,8 @@ export default function Input({ handleInputChange, name, label, type = 'text' })
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
-      {type !== 'select' && <input type={type} name={name} id={name} onChange={handleInputChange} />}
+      {type !== 'select' && type !== 'textarea' && <input type={type} name={name} id={name} onChange={handleInputChange} />}
+      {type === 'textarea' && <textarea maxLength={50} className="inputTextarea" name={name} id={name} onChange={handleInputChange} />}
       {type === 'select' && name === 'country' && (
         <Select
           options={options}
