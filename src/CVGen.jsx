@@ -37,9 +37,12 @@ export default function CVGen() {
       <div className="inputs-container">
         <div className="inputs">
           <h2 className="inputs-title">Your Info</h2>
-          {initialInputs.map((e) => {
-            return <Input name={e.name} type={e.type} label={e.label} key={e.id} handleInputChange={(ev) => handleInputChange(ev, e.id)} />;
-          })}
+          <div className="inputs-group personal">
+            <h3 className="inputs-personal">Personal Information</h3>
+            {initialInputs.map((e) => {
+              return <Input name={e.name} type={e.type} label={e.label} key={e.id} handleInputChange={(ev) => handleInputChange(ev, e.id)} />;
+            })}
+          </div>
         </div>
       </div>
       <div className="page-container">

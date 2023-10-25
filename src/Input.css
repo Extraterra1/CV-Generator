@@ -1,0 +1,24 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group label {
+  font-size: 1.5rem;
+}
+
+.form-group input {
+  color: #242424;
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  max-width: 40rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.form-group input:active,
+.form-group input:focus {
+  outline: 3px solid #17a2b8;
+}

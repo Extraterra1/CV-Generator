@@ -23,6 +23,21 @@
   text-align: center;
 }
 
+.inputs-group {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'title title';
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px dashed #eee;
+}
+
+.inputs-personal {
+  font-size: 2.5rem;
+  grid-area: title;
+}
+
 .page {
   aspect-ratio: 1/1.41;
   padding: 1rem 2rem;
