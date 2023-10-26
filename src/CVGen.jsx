@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
+import Toast from './helpers/Toast';
 import './CVGen.css';
 import Input from './Input';
 import Page from './Page';
 import ExpertiseBox from './ExpertiseBox';
-
-const MySwal = withReactContent(Swal);
 
 const initialInputs = [
   {
@@ -147,17 +144,8 @@ export default function CVGen() {
   };
   const addNewSubGroup = (ev, group) => {
     if (group === 'education') {
-      if (subGroupsArray('education').length === 3)
-        return MySwal.fire({
-          icon: 'error',
-          title: "You can't have more than 3 education groups",
-          toast: true,
-          position: 'top-right',
-          iconColor: 'red',
-          showConfirmButton: false,
-          timer: 1500,
-          timerProgressBar: true
-        });
+      if (subGroupsArray('education').length === 3) return Toast({ title: "You can't have more than 3 education groups", icon: 'error', color: 'red' });
+
       const subGroup = [
         {
           name: 'institution',
@@ -204,17 +192,8 @@ export default function CVGen() {
       setEducationSubgroup(educationSubgroup + 1);
     }
     if (group === 'experience') {
-      if (subGroupsArray('experience').length === 3)
-        return MySwal.fire({
-          icon: 'error',
-          title: "You can't have more than 3 experience groups",
-          toast: true,
-          position: 'top-right',
-          iconColor: 'red',
-          showConfirmButton: false,
-          timer: 1500,
-          timerProgressBar: true
-        });
+      if (subGroupsArray('experience').length === 3) return Toast({ title: "You can't have more than 3 experience groups", icon: 'error', color: 'red' });
+
       const subGroup = [
         {
           name: 'company',
