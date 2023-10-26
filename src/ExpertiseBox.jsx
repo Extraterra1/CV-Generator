@@ -26,6 +26,7 @@ export default function ExpertiseBox({ items, setExpertise }) {
   return (
     <div className="expertise-container">
       <div className="expertise-box">
+        {items.length === 0 && <h4>Empty</h4>}
         {items.map((e) => (
           <span onClick={() => handleDelete(e.id)} key={e.id}>
             {e.name}

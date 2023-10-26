@@ -51,7 +51,27 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+
+  position: relative;
 }
+
+.subgroup .delete-icon {
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+}
+
+.subgroup .delete-icon svg {
+  color: #dc3545;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.subgroup .delete-icon svg:hover {
+  color: #f1394b;
+  transform: scale(1.1);
+}
+
 .education-title,
 .experience-title {
   display: flex;

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import { IconTrashXFilled } from '@tabler/icons-react';
+
 import Toast from './helpers/Toast';
 import './CVGen.css';
 import Input from './Input';
@@ -294,6 +296,9 @@ export default function CVGen() {
             {subGroupsArray('education').map((subgroup) => {
               return (
                 <div key={subgroup[0].id} className="subgroup">
+                  <div className="delete-icon">
+                    <IconTrashXFilled />
+                  </div>
                   {subgroup.map((e) => {
                     return (
                       <Input
@@ -320,6 +325,9 @@ export default function CVGen() {
             {subGroupsArray('experience').map((subgroup) => {
               return (
                 <div key={subgroup[0].id} className="subgroup">
+                  <div className="delete-icon">
+                    <IconTrashXFilled />
+                  </div>
                   {subgroup.map((e) => {
                     return (
                       <Input
