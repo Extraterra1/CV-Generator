@@ -39,7 +39,8 @@
 }
 
 .inputs-group.education,
-.inputs-group.experience {
+.inputs-group.experience,
+.inputs-group.expertise {
   grid-template-columns: 1fr;
   grid-template-areas: none;
 }

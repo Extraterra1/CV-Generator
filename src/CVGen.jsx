@@ -5,6 +5,7 @@ import withReactContent from 'sweetalert2-react-content';
 import './CVGen.css';
 import Input from './Input';
 import Page from './Page';
+import ExpertiseBox from './ExpertiseBox';
 
 const MySwal = withReactContent(Swal);
 
@@ -280,6 +281,7 @@ export default function CVGen() {
   const [inputs, setInputs] = useState(initialInputs);
   const [educationSubgroup, setEducationSubgroup] = useState(2);
   const [experienceSubgroup, setExperienceSubgroup] = useState(2);
+  const [expertise, setExpertise] = useState([]);
 
   return (
     <div className="container">
@@ -354,6 +356,12 @@ export default function CVGen() {
                 </div>
               );
             })}
+          </div>
+          <div className="inputs-group expertise">
+            <div className="expertise-title">
+              <h3 className="inputs-group-title">Expertise</h3>
+            </div>
+            <ExpertiseBox />
           </div>
         </div>
       </div>

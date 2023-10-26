@@ -1,0 +1,55 @@
+.expertise-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.expertise-box {
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: #eee;
+  border-radius: 5px;
+  font-size: 2rem;
+  color: #242424;
+  max-width: 60rem;
+  min-width: 30rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.expertise-box span {
+  padding: 1rem;
+  border: 1px solid #242424;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.expertise-box span:hover {
+  cursor:
+    url('./assets/trash-x-filled.svg') 16 16,
+    pointer;
+  background-color: #dc3545;
+}
+
+.expertise-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.expertise-form label {
+  font-size: 1.5rem;
+}
+.expertise-form input {
+  padding: 1rem 0.3rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.expertise-form button {
+  align-self: stretch;
+}
