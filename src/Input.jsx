@@ -24,6 +24,7 @@ export default function Input({ handleInputChange, name, label, placeholder, typ
           options={options}
           name={name}
           id={name}
+          inputId={name}
           value={selectValue}
           onChange={changeHandler}
           className="countrySelect"
