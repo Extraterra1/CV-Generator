@@ -361,7 +361,7 @@ export default function CVGen() {
             <div className="expertise-title">
               <h3 className="inputs-group-title">Expertise</h3>
             </div>
-            <ExpertiseBox />
+            <ExpertiseBox items={expertise} setExpertise={setExpertise} />
           </div>
         </div>
       </div>
