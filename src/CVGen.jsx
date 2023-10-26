@@ -242,6 +242,14 @@ export default function CVGen() {
       setExperienceSubgroup(experienceSubgroup + 1);
     }
   };
+
+  const deleteSubGroup = (item) => {
+    if (inputs.filter((e) => e.group === item.group).length === 4)
+      return Toast({ title: `You need to have at least one ${item.group} group`, icon: 'error', color: 'red' });
+    const newInputs = inputs.filter((e) => e.subgroup !== item.subgroup);
+    setInputs(newInputs);
+  };
+
   const subGroupsArray = (group) => {
     const groups = {};
 
@@ -297,7 +305,7 @@ export default function CVGen() {
               return (
                 <div key={subgroup[0].id} className="subgroup">
                   <div className="delete-icon">
-                    <IconTrashXFilled />
+                    <IconTrashXFilled onClick={() => deleteSubGroup(subgroup[0])} />
                   </div>
                   {subgroup.map((e) => {
                     return (
@@ -326,7 +334,7 @@ export default function CVGen() {
               return (
                 <div key={subgroup[0].id} className="subgroup">
                   <div className="delete-icon">
-                    <IconTrashXFilled />
+                    <IconTrashXFilled onClick={() => deleteSubGroup(subgroup[0])} />
                   </div>
                   {subgroup.map((e) => {
                     return (
