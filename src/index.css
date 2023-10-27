@@ -6,12 +6,6 @@
 
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 * {
@@ -33,14 +27,6 @@ ul {
   list-style: none;
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -60,13 +46,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-#root {
-  flex: 1;
-
-  display: grid;
-  grid-template-rows: auto 1fr;
-}
-
 @media screen and (max-width: 700px) {
   :root {
     font-size: 9px;
@@ -75,6 +54,6 @@ button:focus-visible {
 
 @media screen and (max-width: 600px) {
   :root {
-    font-size: 8px;
+    font-size: 7px;
   }
 }

@@ -8,10 +8,6 @@
   padding: 5rem;
 }
 
-/* .inputs {
-  height: 100%;
-} */
-
 .inputs-title {
   font-size: 5rem;
   text-align: center;
@@ -20,8 +16,7 @@
 .inputs-group {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'title title';
+  grid-template-columns: 1fr;
   gap: 2rem;
   padding-bottom: 2rem;
   border-bottom: 2px dashed #eee;
@@ -29,14 +24,12 @@
 
 .inputs-group-title {
   font-size: 2.5rem;
-  grid-area: title;
 }
 
-.inputs-group.education,
-.inputs-group.experience,
-.inputs-group.expertise {
-  grid-template-columns: 1fr;
-  grid-template-areas: none;
+.personal-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 
 .subgroup {
@@ -45,7 +38,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-
   position: relative;
 }
 
@@ -101,5 +93,27 @@
 @media screen and (max-width: 900px) {
   .container {
     grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container > div {
+    padding: 1rem;
+  }
+  .subgroup {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 2rem;
+  }
+
+  .personal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .subgroup input {
+    max-width: 100%;
   }
 }

@@ -31,9 +31,15 @@ export default function Input({ handleInputChange, name, label, placeholder, val
           onChange={changeHandler}
           className="countrySelect"
           styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              color: '#242424',
+              fontSize: '2rem'
+            }),
             option: (baseStyles, state) => ({
               ...baseStyles,
-              color: '#242424'
+              color: '#242424',
+              fontSize: '2rem'
             })
           }}
         />
