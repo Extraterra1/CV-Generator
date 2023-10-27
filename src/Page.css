@@ -110,7 +110,7 @@
 .experience-item {
   display: flex;
   justify-content: space-evenly;
-  margin-left: 4rem;
+
   padding: 2rem 0;
   background-color: #6a7185;
   border-radius: 1rem;
@@ -128,4 +128,12 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+@media screen and (max-width: 1700px) {
+  .education-item,
+  .experience-item {
+    padding: 2rem 1rem;
+    gap: 1rem;
+  }
 }
