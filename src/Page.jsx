@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import { IconMailFilled, IconPhone, IconSchool, IconBooks, IconCalendarPlus, IconCalendarMinus } from '@tabler/icons-react';
+import { IconMailFilled, IconPhone, IconSchool, IconBooks, IconCalendarPlus, IconCalendarMinus, IconBriefcase, IconBuildingStore } from '@tabler/icons-react';
 import moment from 'moment/moment';
 import './Page.css';
 
 export default function Page({ personal, education, experience, expertise }) {
   const user = {};
   personal.forEach((e) => (user[e.name] = e.value));
-  console.log(education);
   return (
     <div className="page">
       <div className="page-header">
@@ -60,11 +59,40 @@ export default function Page({ personal, education, experience, expertise }) {
                   </span>
                   <span className="from">
                     <IconCalendarPlus />
-                    {moment(subgroup[2].value, 'YYYY-MM-DD').format('DD/MM/YYYY')}
+                    {subgroup[2].value !== '' ? moment(subgroup[2].value, 'YYYY-MM-DD').format('DD/MM/YYYY') : 'Present Day'}
                   </span>
                   <span className="until">
                     <IconCalendarMinus />
-                    {moment(subgroup[3].value, 'YYYY-MM-DD').format('DD/MM/YYYY')}
+                    {subgroup[3].value !== '' ? moment(subgroup[3].value, 'YYYY-MM-DD').format('DD/MM/YYYY') : 'Present Day'}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="experience">
+          <div className="experience-title">
+            <h2>Experience</h2>
+          </div>
+          <div className="experience-content">
+            {experience.map((subgroup) => {
+              return (
+                <div className="experience-item" key={subgroup[0].subgroup}>
+                  <span className="company">
+                    <IconBriefcase />
+                    {subgroup[0].value}
+                  </span>
+                  <span className="position">
+                    <IconBuildingStore />
+                    {subgroup[1].value}
+                  </span>
+                  <span className="from">
+                    <IconCalendarPlus />
+                    {subgroup[2].value !== '' ? moment(subgroup[2].value, 'YYYY-MM-DD').format('DD/MM/YYYY') : 'Present Day'}
+                  </span>
+                  <span className="until">
+                    <IconCalendarMinus />
+                    {subgroup[3].value !== '' ? moment(subgroup[3].value, 'YYYY-MM-DD').format('DD/MM/YYYY') : 'Present Day'}
                   </span>
                 </div>
               );
