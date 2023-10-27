@@ -361,7 +361,12 @@ export default function CVGen() {
         </div>
       </div>
       <div className="page-container">
-        <Page inputs={inputs} />
+        <Page
+          personal={inputs.filter((e) => e.group === 'personal')}
+          education={subGroupsArray('education')}
+          experience={subGroupsArray('experience')}
+          expertise={expertise}
+        />
       </div>
     </div>
   );

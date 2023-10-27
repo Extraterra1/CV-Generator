@@ -2,13 +2,7 @@
 export default function Page({ inputs }) {
   return (
     <div className="page">
-      {inputs.map((e) => {
-        return (
-          <h1 key={e.id}>
-            {e.name} {e.value}
-          </h1>
-        );
-      })}
+      <h1>hey</h1>
     </div>
   );
 }
