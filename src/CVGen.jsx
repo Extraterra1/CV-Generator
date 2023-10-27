@@ -13,7 +13,7 @@ const initialInputs = [
     name: 'name',
     type: 'text',
     label: 'Full Name',
-    value: '',
+    value: 'John Doe',
     placeholder: 'John Doe',
     id: uuid(),
     group: 'personal'
@@ -22,7 +22,7 @@ const initialInputs = [
     name: 'phone',
     type: 'tel',
     label: 'Phone',
-    value: '',
+    value: '961 776 832',
     placeholder: '999 999 999',
     id: uuid(),
     group: 'personal'
@@ -31,7 +31,7 @@ const initialInputs = [
     name: 'email',
     type: 'email',
     label: 'Email',
-    value: '',
+    value: 'johndoe@gmail.com',
     placeholder: 'example@gmail.com',
     id: uuid(),
     group: 'personal'
@@ -40,7 +40,7 @@ const initialInputs = [
     name: 'country',
     type: 'select',
     label: 'Country',
-    value: '',
+    value: 'Zimbabwe',
     placeholder: '',
     id: uuid(),
     group: 'personal'
@@ -49,7 +49,8 @@ const initialInputs = [
     name: 'desc',
     type: 'textarea',
     label: 'Description',
-    value: '',
+    value:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     placeholder: 'Write something about yourself...',
     id: uuid(),
     group: 'personal'
@@ -58,7 +59,7 @@ const initialInputs = [
     name: 'institution',
     type: 'text',
     label: 'Institution',
-    value: '',
+    value: 'Harvard University',
     placeholder: 'UofE',
     id: uuid(),
     group: 'education',
@@ -68,7 +69,7 @@ const initialInputs = [
     name: 'subject',
     type: 'text',
     label: 'Subject',
-    value: '',
+    value: 'Bachelor of Science in Computer Science',
     placeholder: 'Bachelor in Science',
     id: uuid(),
     group: 'education',
@@ -78,7 +79,7 @@ const initialInputs = [
     name: 'from',
     type: 'date',
     label: 'From',
-    value: '',
+    value: '2015-10-10',
     placeholder: '22/02/1956',
     id: uuid(),
     group: 'education',
@@ -88,7 +89,7 @@ const initialInputs = [
     name: 'until',
     type: 'date',
     label: 'Until',
-    value: '',
+    value: '2020-07-13',
     placeholder: '22/02/1957',
     id: uuid(),
     group: 'education',
@@ -98,7 +99,7 @@ const initialInputs = [
     name: 'company',
     type: 'text',
     label: 'Company',
-    value: '',
+    value: 'Tech Innovators Inc.',
     placeholder: 'Company Name',
     id: uuid(),
     group: 'experience',
@@ -108,7 +109,7 @@ const initialInputs = [
     name: 'position',
     type: 'text',
     label: 'Position',
-    value: '',
+    value: 'Senior Software Engineer',
     placeholder: 'Clerk',
     id: uuid(),
     group: 'experience',
@@ -118,7 +119,7 @@ const initialInputs = [
     name: 'start',
     type: 'date',
     label: 'Start',
-    value: '',
+    value: '2022-03-09',
     placeholder: '22/02/1957',
     id: uuid(),
     group: 'experience',
@@ -128,14 +129,21 @@ const initialInputs = [
     name: 'end',
     type: 'date',
     label: 'End',
-    value: '',
+    value: '2022-09-27',
     placeholder: '22/02/1957',
     id: uuid(),
     group: 'experience',
     subgroup: 'experience1'
   }
 ];
-
+const initialExpertise = [
+  { id: uuid(), name: 'Javascript' },
+  { id: uuid(), name: 'React' },
+  { id: uuid(), name: 'Node' },
+  { id: uuid(), name: 'NEXT.js' },
+  { id: uuid(), name: 'Express' },
+  { id: uuid(), name: 'COBOL' }
+];
 export default function CVGen() {
   const handleInputChange = (ev, key) => {
     const newInputs = inputs.map((e) => {
@@ -270,7 +278,7 @@ export default function CVGen() {
   const [inputs, setInputs] = useState(initialInputs);
   const [educationSubgroup, setEducationSubgroup] = useState(2);
   const [experienceSubgroup, setExperienceSubgroup] = useState(2);
-  const [expertise, setExpertise] = useState([]);
+  const [expertise, setExpertise] = useState(initialExpertise);
 
   return (
     <div className="container">
@@ -288,11 +296,18 @@ export default function CVGen() {
                     type={e.type}
                     label={e.label}
                     key={e.id}
+                    value={e.value}
                     handleInputChange={(ev) => handleInputChange(ev, e.id)}
                   />
                 );
               return null;
             })}
+          </div>
+          <div className="inputs-group expertise">
+            <div className="expertise-title">
+              <h3 className="inputs-group-title">Expertise</h3>
+            </div>
+            <ExpertiseBox items={expertise} setExpertise={setExpertise} />
           </div>
           <div className="inputs-group education">
             <div className="education-title">
@@ -314,6 +329,7 @@ export default function CVGen() {
                         name={e.name}
                         type={e.type}
                         label={e.label}
+                        value={e.value}
                         key={e.id}
                         handleInputChange={(ev) => handleInputChange(ev, e.id)}
                       />
@@ -343,6 +359,7 @@ export default function CVGen() {
                         name={e.name}
                         type={e.type}
                         label={e.label}
+                        value={e.value}
                         key={e.id}
                         handleInputChange={(ev) => handleInputChange(ev, e.id)}
                       />
@@ -351,12 +368,6 @@ export default function CVGen() {
                 </div>
               );
             })}
-          </div>
-          <div className="inputs-group expertise">
-            <div className="expertise-title">
-              <h3 className="inputs-group-title">Expertise</h3>
-            </div>
-            <ExpertiseBox items={expertise} setExpertise={setExpertise} />
           </div>
         </div>
       </div>

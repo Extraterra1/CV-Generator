@@ -4,7 +4,7 @@ import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import './Input.css';
 
-export default function Input({ handleInputChange, name, label, placeholder, type = 'text' }) {
+export default function Input({ handleInputChange, name, label, placeholder, value, type = 'text' }) {
   const options = useMemo(() => countryList().getData(), []);
   const [selectValue, setSelectValue] = useState('');
   const changeHandler = (value) => {
@@ -15,9 +15,11 @@ export default function Input({ handleInputChange, name, label, placeholder, typ
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
-      {type !== 'select' && type !== 'textarea' && <input placeholder={placeholder} type={type} name={name} id={name} onChange={handleInputChange} />}
+      {type !== 'select' && type !== 'textarea' && (
+        <input value={value} placeholder={placeholder} type={type} name={name} id={name} onChange={handleInputChange} />
+      )}
       {type === 'textarea' && (
-        <textarea placeholder={placeholder} maxLength={50} className="inputTextarea" name={name} id={name} onChange={handleInputChange} />
+        <textarea value={value} placeholder={placeholder} maxLength={500} className="inputTextarea" name={name} id={name} onChange={handleInputChange} />
       )}
       {type === 'select' && name === 'country' && (
         <Select

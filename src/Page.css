@@ -1,0 +1,125 @@
+.page {
+  aspect-ratio: 1/1.41;
+  color: #242424;
+  background-color: transparent;
+}
+
+.main-info {
+  background-color: #183042;
+  border-radius: 1rem 1rem 0 0;
+  padding: 2rem 3rem;
+  color: #eee;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 4fr 1fr;
+}
+
+.main-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.main-info-content h1 {
+  font-size: 3rem;
+}
+
+.main-info-content h2 {
+  font-size: 1.5rem;
+}
+
+.main-info-content p {
+  font-size: 1.2rem;
+}
+
+.main-info-photo {
+  display: grid;
+  place-items: center;
+}
+
+.main-info-photo img {
+  max-width: 100%;
+  object-fit: cover;
+  border: 2px solid beige;
+}
+
+.page-header .socials {
+  background-color: #0c1829;
+  padding: 1rem 3rem;
+  color: #eee;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.socials-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.3rem;
+}
+
+.page-content {
+  height: 100%;
+  background-color: #eee;
+  border-radius: 0 0 1rem 1rem;
+  padding: 5rem 3rem;
+}
+
+.expertise-title h2,
+.education-title h2 {
+  color: #72798b;
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+}
+
+.expertise-content {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.expertise-content span {
+  color: #eee;
+  background-color: #6a7185;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  flex-basis: 20%;
+}
+
+.education {
+  margin-top: 5rem;
+}
+
+.education-content {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.education-item {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 4rem;
+  padding: 2rem 0;
+  background-color: #6a7185;
+  border-radius: 1rem;
+  color: #eee;
+  font-size: 1.3rem;
+}
+
+.education-item span:first-child {
+  font-weight: bold;
+}
+
+.education-item span {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

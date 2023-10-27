@@ -8,12 +8,6 @@
   padding: 5rem;
 }
 
-/* .inputs, */
-.page {
-  background-color: #eee;
-  border-radius: 0.5rem;
-}
-
 /* .inputs {
   height: 100%;
 } */
@@ -90,10 +84,4 @@
   transform: scale(1.1);
   outline: none;
   border: none;
-}
-
-.page {
-  aspect-ratio: 1/1.41;
-  padding: 1rem 2rem;
-  color: #242424;
 }
