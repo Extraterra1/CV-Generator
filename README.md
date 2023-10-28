@@ -1,8 +1,5 @@
-# React + Vite
+# CV-Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![website snapshot](https://raw.githubusercontent.com/Extraterra1/CV-Generator/main/website-snapshot.gif)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Deployed on https://elegant-blancmange-47139d.netlify.app/
