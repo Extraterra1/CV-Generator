@@ -2,6 +2,7 @@
 import { IconMailFilled, IconPhone, IconSchool, IconBooks, IconCalendarPlus, IconCalendarMinus, IconBriefcase, IconBuildingStore } from '@tabler/icons-react';
 import moment from 'moment/moment';
 import './Page.css';
+const imgUrl = new URL('./assets/cat.jpg', import.meta.url);
 
 export default function Page({ personal, education, experience, expertise }) {
   const user = {};
@@ -16,7 +17,7 @@ export default function Page({ personal, education, experience, expertise }) {
             <p className="desc">{user.desc}</p>
           </div>
           <div className="main-info-photo">
-            <img src="src\assets\cat.jpg" alt="" />
+            <img src={imgUrl} alt="" />
           </div>
         </div>
         <div className="socials">
